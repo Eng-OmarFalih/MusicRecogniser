@@ -11,6 +11,7 @@ function PlayVideo(elem) {
 function Clear() {
     $("#Error").html("");
     $("#divVideos").empty();
+    $('#MainVideo').attr('src', "")
     $('#MainVideo').css('visibility', 'hidden');
     $("#Btn_Search").attr("disabled", true);
     $('#divSearch').animate({ top: -150 }, 300);
@@ -44,7 +45,7 @@ function btn_SearchClick() {
                 var res = JSON.parse(JsonRes);
 
                 for (var i = 0; i < res.length; i++) {
-                    document.getElementById("divVideos").innerHTML += "<div class='col-sm-3' style='text-align:center;float:center;'> <img onclick='PlayVideo(this)' style='cursor: pointer;' id='" +
+                    document.getElementById("divVideos").innerHTML += "<div class='col-md-6' style='text-align:center;float:center;'> <img onclick='PlayVideo(this)' style='cursor: pointer;' id='" +
                         res[i].videoId + "' src='https://img.youtube.com/vi/" + res[i].videoId + "/default.jpg'>  <div style='font-size:14px;'>" + res[i].title + " </div> </div>   ";
                 }
                 $('#MainVideo').css('visibility', 'visible');
